@@ -1,5 +1,5 @@
-WordVault 2.5.3 – Fast OCR
+WordVault 2.5.4 – kamera ja galleria
 
-Muutokset: mobiilikuvan skaalaus 1600 px, harmaasävy, suomen kielimalli, OCR-workerin uudelleenkäyttö, epävarmojen sanojen suodatus (jos Tesseract palauttaa sanakohtaiset luottamusarvot), OCR-aikamittaus. Jos sanakohtaisia arvoja ei ole saatavilla, käytetään tekstin sanoja ja 120 sanan turvarajaa.
+Lisätty erilliset kameran ja gallerian valintapainikkeet, kuvien esikatselu ja tarkempi OCR-uusintayritys, jos sanoja ei löydy. Voikko API, tallennus ja harjoittelu ennallaan.
 
-Päivitä nämä kuusi tiedostoa GitHub main -haaraan. Älä muuta Voikko-palvelimen api.py- tai Dockerfile-tiedostoja. Ota JSON-varmuuskopio sanoista ennen päivitystä.
+Päivitä ZIP-paketin kuusi tiedostoa GitHubin main-haaraan. Älä muuta api.py- tai Dockerfile-tiedostoja.
