@@ -1,12 +1,3 @@
-# WordVault Render PWA
+WordVault 1.2 – yksittäiset sanat OCR-kuvasta.
 
-## Julkaisu
-1. Luo GitHubiin uusi repository `WordVault` (älä korvaa Uutisvirtaa).
-2. Lisää tämän paketin kuusi tiedostoa repositoryn juureen.
-3. Render: New > Static Site, yhdistä repository. Build Command: `echo ready`, Publish Directory: `.`.
-4. Julkaise ja avaa Renderin HTTPS-osoite puhelimella.
-5. Android: Chrome > Lisää aloitusnäyttöön / Asenna. iPhone: Safari > Jaa > Lisää Koti-valikkoon.
-
-Renderin `render.yaml` on vaihtoehto Blueprint-julkaisulle. Valitse joko Static Site käsin tai Blueprint.
-
-Sanat tallennetaan selaimen localStorageen **laitteittain**, ei Renderin palvelimelle. Käytä sovelluksen JSON-varmuuskopiointia. Älä poista sivuston tietoja ilman varmuuskopiota. OCR käyttää internetistä ladattavaa Tesseract.js-kirjastoa, joten ensimmäinen tunnistus vaatii verkkoyhteyden. OCR-tulos tarkistetaan ennen tallennusta.
+Päivitä kaikki tämän kansion tiedostot GitHubin WordVault-projektiin ja odota Renderin Static Site -julkaisua. Sovellus jakaa OCR-tekstin yksittäisiin sanoihin, poistaa välimerkit ja duplikaatit. Käännökset kirjoitetaan vielä itse. Sanat säilyvät puhelimen selaimessa.
