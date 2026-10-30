@@ -1,1 +1,11 @@
-WordVault 2.5.9 – OCR-kuvankäsittelyn hallittu testiversio.\n\nOCR vertaa alkuperäistä ja tarvittaessa kontrastikorjattua kuvaa. Tuloksia ei yhdistetä; valinta painottaa luottamusarvoa ja torjuu kohinaa. Näytä OCR-vertailun tiedot avaa diagnostiikan. Rajaus ja raakatekstin hyväksyntä säilyvät. Voikko-palvelinta ei muuteta.\n\nAsenna ZIP:n kuusi tiedostoa GitHub-repositorion juureen. Renderin julkaisu ja PWA-päivitys vaaditaan. Mobiili-OCR:n tarkkuutta ei ole vielä validoitu.\n
+# WordVault 2.5.10 — automaattinen tekstialue (testiversio)
+
+Korvaa GitHubin juuritiedostot tämän paketin tiedostoilla. Render julkaisee muutoksen main-haaran commitin jälkeen.
+
+- Vaakasuuntaiselle yhden rivin kuvalle kontrasti + Tesseract PSM 7.
+- Pystysuuntaiselle moniriviselle kuvalle kuvapohjainen keskialueen tunnistus ja PSM 3; tarvittaessa rajattu PSM 11.
+- Enintään kolme OCR-ajoa, ei sanalistojen yhdistämistä, yli 35 sanan ehdokkaat hylätään pisteytyksessä.
+- Raakateksti hyväksytään edelleen käyttäjän toimesta ennen Voikkoa.
+- Sanasto ja harjoittelu ennallaan.
+
+HUOM: Selaimen Tesseract.js-tuloksia ei ole tässä ympäristössä testattu puhelimella. Rajaus on heuristinen eikä takaa kaikkien kuvien onnistumista.
