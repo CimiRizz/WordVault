@@ -1,7 +1,7 @@
-# WordVault 2.5.5 – OCR-korjaus
+WordVault 2.5.6 – vakaa OCR
 
-Korvaa GitHub-repositorion juuren kuusi frontend-tiedostoa ZIP-paketin tiedostoilla. Älä muuta Voikko-Docker-palvelua.
+Muutokset: yksi OCR-ajo per kuva; ei automaattista PSM-vertailua. Oletuksena Tesseract PSM 3, valittavissa 6, 7, 11. Raakatekstiä voi korjata ja analysoida uudelleen Voikolla. Kameran/gallerian valinta, sanasto, käännökset ja harjoittelu säilyvät.
 
-Muutokset: kuvien enimmäissivu 3000 px, alkuperäinen väri säilyy, OCR PSM 6 ja tarvittaessa PSM 11 / PSM 7, raakateksti ja varmuus näkyvät ennen Voikkoa, ei sanakohtaista luottamusarvokarsintaa, palvelutyöntekijän välimuistin versio päivitetty.
+Asennus: kopioi kaikki kuusi tiedostoa GitHub-repositorion juureen. Render Static Site julkaisee muutokset. Voikko Docker-palvelua ei muuteta.
 
-Huomio: OCR-tunnistuksen oikeellisuutta todellisilla kamerakuvilla ei ole vielä vahvistettu. Tesseractin varmuusarvo ei takaa oikeaa tekstiä.
+Huom: todellista kameratarkkuutta ei ole testattu käyttäjän kuvilla.
