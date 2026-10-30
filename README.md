@@ -19,3 +19,7 @@ Harjoittelu vertaa vastausta valittuun tallennettuun englanninkieliseen käänn�
 
 ## v2.5.1
 Omat sanat -näkymässä on Poista kaikki sanat -painike. Poisto edellyttää vahvistusta ja tyhjentää vain tallennetut sanat sekä niihin liittyvän harjoitteluhistorian.
+
+
+## 2.5.2
+Kuulustelussa seuraava sana tai tulos avautuu automaattisesti 1,6 sekunnin kuluttua vastauksen tarkistamisesta. Siirtymisen voi tehdä myös heti painikkeella.
