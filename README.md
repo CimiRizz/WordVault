@@ -1,7 +1,11 @@
-# WordVault 2.5.11 – rivin alun OCR-korjaus (testiversio)
+# WordVault 2.5.12 — rivin alun tarkistus (testiversio)
 
-Pohjana v2.5.10. Näyttökuvan yhden rivin OCR:ään lisätty vasen/oikea ja ylä/alamarginaali sekä tarvittaessa suurennettu alkuperäiskuva. Kolme ehdokasta enintään; tuloksia ei yhdistetä. Pienissä pistemääräeroissa suositaan reunamarginaaleilla tunnistettua tulosta. Pystysuuntaisten kuvien käsittely, Voikko, sanasto ja harjoittelu ennallaan.
+Perustuu käyttäjän toimittamaan alkuperäiseen 2.5.10-pakettiin.
 
-Lataa kaikki kuusi tiedostoa GitHub-repositorion juureen ja tee commit main-haaraan. Service workerin välimuistin versio päivitetty.
+- Säilyttää version 2.5.10 ensisijaisen OCR-tunnistuksen ja monirivisen kuvankäsittelyn.
+- Jos vaakasuuntaisen rivin alku näyttää epäilyttävältä (1–2 merkin sana), tunnistaa kuvan vasemman 56 % erikseen.
+- Näyttää erillisen tuloksen tarkistusehdotuksena, mutta **ei koskaan korvaa tai yhdistä** ensisijaista tekstiä automaattisesti.
+- Päivittää PWA-välimuistiversion.
+- Ei muuta Voikkoa, käännöksiä tai sanastoa.
 
-Tämä on testiversio: selaimen Tesseract.js-tarkkuutta ei ole vahvistettu alkuperäisillä testikuvilla.
+Testaa alkuperäisillä kuvilla. Tämän selainversion OCR-tarkkuutta ei ole vielä mitattu mobiililaitteella.
