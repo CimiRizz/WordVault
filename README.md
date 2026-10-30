@@ -1,5 +1,1 @@
-WordVault 2.2 – Voikko-perusmuodot ja englanninkieliset käännösehdotukset.
-
-Päivitä GitHubiin kaikki ZIP-paketin tiedostot. Nykyinen Voikko Web Service pysyy käytössä. Jos Renderissä on jo toimiva Dockerfile, säilytä se ennallaan (paketin Dockerfile on 2.1:n alkuperäinen).
-
-Käännökset haetaan selaimesta MyMemory-palvelusta, jolla on käyttörajoituksia. Tarkista ehdotukset ennen tallennusta. Sanat tallennetaan vain tämän selaimen localStorageen.
+WordVault 2.3 – asiayhteyden näyttävä käännösten tarkistus. Säilyttää Voikko-palvelun ja aiemman tallennuksen. Tunnettujen sanojen tarkistetut merkitykset etusijalla; muille MyMemory-ehdotus ja OCR-lauseen käännös vertailtavaksi. Lausekäännös ei automaattisesti varmista yksittäisen sanan oikeellisuutta. Dockerfile ja api.py säilyvät ennallaan.\n

@@ -93,12 +93,27 @@ async function translateWord(word){
    translationCache.set(normalized,translated);return translated;
  }finally{clearTimeout(timer)}
 }
+// Context is a reading aid, not proof of a word-level translation.
+const verifiedMeanings={
+ 'oleva':'existing', 'olla':'be', 'auto':'car', 'kirja':'book', 'koira':'dog',
+ 'talo':'house', 'vesi':'water', 'lapsi':'child', 'mennä':'go', 'kirjoittaa':'write'
+};
+function sentencesFor(word,text){
+ const pieces=String(text||'').split(/(?<=[.!?\n])\s+|\n+/u).map(x=>x.trim()).filter(Boolean);
+ const escaped=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const re=new RegExp('(^|[^\\p{L}])'+escaped+'(?=$|[^\\p{L}])','iu');
+ return pieces.filter(x=>re.test(x)).slice(0,2);
+}
+async function translateSentence(sentence){
+ if(!sentence||sentence.length>450)return '';
+ return translateWord(sentence);
+}
 function showLemmas(rawText, analyses){
  const results=$('ocrResults');results.replaceChildren();
  const tokens=parseWords(rawText),rows=[];let confirmed=0,uncertain=0;
  const heading=node('h3',`Tunnistetut sanat (${tokens.length})`);results.append(heading);
  if(!tokens.length){results.append(node('p','Kuvasta ei löytynyt sanoja.','status'));return}
- results.append(node('p','Tarkista perusmuodot ja käännösehdotukset ennen tallentamista. Epäselviä sanoja ei tallenneta automaattisesti.','muted'));
+ results.append(node('p','Tarkista perusmuodot ja käännökset. Lauseen englanninnos on vain asiayhteysvihje, ei varmistettu sanakirjakäännös. Korjaa väärät ehdotukset ennen tallennusta.','muted'));
  const seen=new Set();
  for(let i=0;i<tokens.length;i++){
    const original=tokens[i],analysis=analyses[i]||{},suggestions=Array.isArray(analysis.lemmas)?analysis.lemmas:[];
@@ -117,7 +132,9 @@ function showLemmas(rawText, analyses){
      sel.onchange=()=>{fi.value=sel.value;en.value='';};row.append(sel);
    }
    const note=node('small',suggestions.length>1?'Useita perusmuotoja – valitse oikea':suggestions.length?'Voikko-perusmuoto':'Ei Voikko-analyysiä – tarkista','muted');note.style.flexBasis='100%';
-   row.append(note);results.append(row);rows.push({fi,en,original});
+   row.append(note);results.append(row);
+   const context=node('small','','muted');context.style.flexBasis='100%';context.style.whiteSpace='normal';row.append(context);
+   rows.push({fi,en,original,note,context});
  }
  results.insertBefore(node('p',`Voikko tunnisti ${confirmed} perusmuotoa. Tarkistettavia ${uncertain}.`,'muted'),heading.nextSibling);
  const translationStatus=node('p','','muted');translationStatus.setAttribute('aria-live','polite');
@@ -125,15 +142,29 @@ function showLemmas(rawText, analyses){
  const saveButton=node('button','Tallenna tarkistetut sanaparit','primary');
  const controls=node('div',undefined,'row');controls.style.marginTop='14px';controls.append(translateButton,saveButton);results.append(controls,translationStatus);
  translateButton.onclick=async()=>{
-   translateButton.disabled=true;let ok=0,failed=0;
+   translateButton.disabled=true;let ok=0,failed=0;const contextTranslations=new Map();
    // Sequential requests avoid overwhelming the free translation service.
    for(let i=0;i<rows.length;i++){
      const r=rows[i];if(r.en.value.trim())continue;
      const lemma=r.fi.value.trim();if(!lemma){failed++;continue}
      translationStatus.textContent=`Haetaan käännöksiä ${i+1}/${rows.length}…`;
-     try{const translation=await translateWord(lemma);if(translation){r.en.value=translation;ok++}else failed++}catch{failed++}
+     try{
+       const key=lemma.toLocaleLowerCase('fi');
+       const translation=verifiedMeanings[key]||await translateWord(lemma);
+       if(translation){r.en.value=translation;ok++}else failed++;
+       const contexts=sentencesFor(r.original,rawText);
+       if(contexts.length&&contexts[0].split(/\s+/).length>=3){
+         const sentence=contexts[0];
+         if(!contextTranslations.has(sentence)){
+           try{contextTranslations.set(sentence,await translateSentence(sentence))}catch{contextTranslations.set(sentence,'')}
+         }
+         const translatedContext=contextTranslations.get(sentence);
+         r.context.textContent='Asiayhteys: '+sentence+(translatedContext?' → '+translatedContext:'');
+         if(!verifiedMeanings[key])r.note.textContent+=' · Käännös on ehdotus – vertaa asiayhteyteen';
+       }else if(!verifiedMeanings[key])r.note.textContent+=' · Ei lauseyhteyttä – tarkista käännös';
+     }catch{failed++}
    }
-   translationStatus.textContent=`Käännöksiä haettu: ${ok}. Ilman käännöstä: ${failed}. Tarkista ehdotukset.`;
+   translationStatus.textContent=`Käännösehdotuksia: ${ok}. Ilman käännöstä: ${failed}. Asiayhteys näytetään, kun se löytyy; tarkista sanan merkitys ennen tallennusta.`;
    translateButton.disabled=false;
  };
  saveButton.onclick=()=>{
