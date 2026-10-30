@@ -1,12 +1,12 @@
 <!doctype html><html lang="fi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172e4d"><title>WordVault</title><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="WordVault"><style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v2.3.1 Voikko + automaattiset käännökset</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v2.4 · tarkemmat käännökset ja siisti sanalista</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
 <section id="add"><div class="card"><h2>Poimi sanat kuvasta</h2><p class="muted">Kuvaa suomenkielistä tekstiä. WordVault poimii tekstistä yksittäiset sanat ja näyttää niiden perusmuodot. Voikko muuttaa tunnistetut sanat perusmuotoon. WordVault hakee niille englanninkieliset käännösehdotukset, jotka voit tarkistaa ja tallentaa kuulustelua varten.</p><label for="apiUrl">Voikko-palvelun osoite</label><input id="apiUrl" type="text" placeholder="https://oma-voikko.onrender.com" autocomplete="url"><p class="muted">Osoite asetetaan kerran. Valokuvat käsitellään puhelimessa; vain tunnistetut sanat lähetetään Voikko-palveluun.</p><input id="photo" type="file" accept="image/*" capture="environment"><button id="scan" class="primary">Tunnista teksti</button><div id="ocrStatus" class="muted" aria-live="polite"></div><progress id="ocrProgress" max="1" value="0" class="hide"></progress><div id="ocrResults"></div></div></section>
 <section id="words" class="hide"><div class="card"><h2>Omat sanat</h2><input id="search" type="text" placeholder="Hae sanoja…" aria-label="Hae sanoja"><div id="wordList"></div></div><div class="card"><h2>Varmuuskopio</h2><p class="muted">Sanat säilyvät tämän selaimen muistissa. Selaintietojen poistaminen voi hävittää ne. Vie varmuuskopio säännöllisesti.</p><div class="row"><button id="export">Vie JSON-tiedosto</button><button id="importButton">Tuo JSON-tiedosto</button></div><input id="importFile" type="file" accept="application/json,.json" class="hide"></div></section>
 <section id="quiz" class="hide"><div class="card"><h2>Kuulustelu</h2><p class="muted">Kirjoita englanninkielinen käännös. Väärin vastatut sanat tulevat useammin uudelleen.</p><div id="quizArea"></div></div></section><footer>WordVault MVP · Sanat tallennetaan vain tämän laitteen selaimeen.</footer></main>
 <script>
 const KEY='wordvault-mvp-1';const $=id=>document.getElementById(id);let words=[];let quizQueue=[],current=null,score=0,asked=0;try{let x=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(x))words=x.filter(w=>typeof w.fi==='string'&&typeof w.en==='string').slice(0,10000)}catch{};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(words))}catch{alert('Tallennus epäonnistui. Tarkista selaimen vapaa tila.')}renderWords();$('count').textContent=words.length}
-function add(fi,en){fi=fi.trim();en=en.trim();if(!fi||!en)return false;if(words.some(w=>w.fi.toLocaleLowerCase('fi')===fi.toLocaleLowerCase('fi')&&w.en.toLowerCase()===en.toLowerCase()))return false;words.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),fi,en,wrong:0,added:Date.now()});save();return true}
+function add(fi,en){fi=fi.trim();en=en.trim();if(!fi||!en)return false;if(words.some(w=>w.fi.toLocaleLowerCase('fi')===fi.toLocaleLowerCase('fi')))return false;words.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),fi,en,wrong:0,added:Date.now()});save();return true}
 function tab(name){document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));['add','words','quiz'].forEach(t=>$(t).classList.toggle('hide',t!==name));if(name==='quiz')showQuiz()}
 document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>tab(b.dataset.tab));function node(tag,text,cls){let e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
 function renderWords(){let list=$('wordList');list.replaceChildren();let q=$('search').value.trim().toLocaleLowerCase('fi');let found=words.filter(w=>(w.fi+' '+w.en).toLocaleLowerCase('fi').includes(q));if(!found.length){list.append(node('p','Ei sanoja.','muted'));return}for(let w of found){let row=node('div',undefined,'word'),info=node('div'),b=node('button','Poista');info.append(node('strong',w.fi),node('small',w.en));b.onclick=()=>{if(confirm('Poistetaanko sanapari?')){words=words.filter(x=>x.id!==w.id);save()}};row.append(info,b);list.append(row)}}$('search').oninput=renderWords;
@@ -76,28 +76,56 @@ async function analyzeWords(tokens){
 // Free MyMemory translation API. Network connection is needed, and the public
 // service has request quotas. Translation is a suggestion, not a verified dictionary entry.
 const translationCache=new Map();
-async function translateWord(word){
- const normalized=word.trim().toLocaleLowerCase('fi');
- if(!normalized||normalized.length>60)return '';
- if(translationCache.has(normalized))return translationCache.get(normalized);
- const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),9000);
+const verifiedMeanings={
+ 'oleva':['existing','present','being'], 'olla':['be'], 'auto':['car'], 'kirja':['book'],
+ 'koira':['dog'], 'talo':['house'], 'vesi':['water'], 'lapsi':['child'],
+ 'mennä':['go'], 'kirjoittaa':['write'], 'kuusi':['six','spruce'],
+ 'pankki':['bank'], 'saada':['get','receive'], 'pitää':['hold','like','must'],
+ 'tulla':['come'], 'tehdä':['do','make'], 'ottaa':['take'], 'aika':['time'],
+ 'kieli':['language','tongue'], 'maa':['country','land'], 'olla':['be']
+};
+function normalizeEnglish(s){
+ const el=document.createElement('textarea');el.innerHTML=String(s||'');
+ return el.value.trim().replace(/\s+/g,' ');
+}
+function plausibleEnglish(s,fi){
+ if(!s||s.length>90||/[<>\n\r]/.test(s))return false;
+ if(/^(?:MYMEMORY|QUERY LENGTH|WARNING|NO MATCH|TRANSLATED|ERROR|NULL|UNDEFINED)/i.test(s))return false;
+ if(s.toLocaleLowerCase('fi')===fi.toLocaleLowerCase('fi'))return false;
+ return /^[\p{L}][\p{L}\p{M}0-9'’.,!?() -]*$/u.test(s);
+}
+async function translateCandidates(word){
+ const key=word.trim().toLocaleLowerCase('fi');
+ if(!key||key.length>60)return [];
+ if(translationCache.has(key))return translationCache.get(key);
+ if(verifiedMeanings[key])return verifiedMeanings[key].map((value,i)=>({value,score:100-i,source:'tarkistettu sanasto'}));
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
  try{
    const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(word)+'&langpair=fi%7Cen';
    const response=await fetch(url,{signal:controller.signal});
    if(!response.ok)throw Error('Käännöspalvelu ei vastaa');
    const data=await response.json();
-   if(data.responseStatus&&Number(data.responseStatus)!==200)return '';
-   let translated=String(data.responseData?.translatedText||'').trim();
-   const decode=document.createElement('textarea');decode.innerHTML=translated;translated=decode.value.trim();
-   if(!translated||translated.length>100||/^(?:MYMEMORY WARNING|QUERY LENGTH LIMIT)/i.test(translated))return '';
-   translationCache.set(normalized,translated);return translated;
+   if(data.responseStatus&&Number(data.responseStatus)!==200)return [];
+   const candidates=new Map();
+   function consider(raw,quality,source){
+     const value=normalizeEnglish(raw);
+     if(!plausibleEnglish(value,word))return;
+     const k=value.toLocaleLowerCase('en');
+     const score=Math.max(0,Math.min(100,Number(quality)||0));
+     if(!candidates.has(k)||candidates.get(k).score<score)candidates.set(k,{value,score,source});
+   }
+   // A top result is not automatically trusted; examine alternative translation memories.
+   const top=Number(data.responseData?.match||0);
+   consider(data.responseData?.translatedText,top>1?top:top*100,'MyMemory');
+   for(const m of (Array.isArray(data.matches)?data.matches:[]).slice(0,25)){
+     const sourceText=String(m.segment||'').trim().toLocaleLowerCase('fi');
+     if(sourceText!==key)continue; // Avoid unrelated phrases and misleading fuzzy matches.
+     const q=Number(m.match||0);consider(m.translation,q>1?q:q*100,'MyMemory');
+   }
+   const result=[...candidates.values()].sort((a,b)=>b.score-a.score).slice(0,4);
+   translationCache.set(key,result);return result;
  }finally{clearTimeout(timer)}
 }
-// Context is a reading aid, not proof of a word-level translation.
-const verifiedMeanings={
- 'oleva':'existing', 'olla':'be', 'auto':'car', 'kirja':'book', 'koira':'dog',
- 'talo':'house', 'vesi':'water', 'lapsi':'child', 'mennä':'go', 'kirjoittaa':'write'
-};
 function sentencesFor(word,text){
  const pieces=String(text||'').split(/(?<=[.!?\n])\s+|\n+/u).map(x=>x.trim()).filter(Boolean);
  const escaped=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
@@ -106,73 +134,95 @@ function sentencesFor(word,text){
 }
 async function translateSentence(sentence){
  if(!sentence||sentence.length>450)return '';
- return translateWord(sentence);
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+ try{
+  const response=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(sentence)+'&langpair=fi%7Cen',{signal:controller.signal});
+  if(!response.ok)return '';
+  const data=await response.json();
+  return normalizeEnglish(data.responseData?.translatedText).slice(0,450);
+ }finally{clearTimeout(timer)}
 }
-function showLemmas(rawText, analyses){
+function showLemmas(rawText,analyses){
  const results=$('ocrResults');results.replaceChildren();
- const tokens=parseWords(rawText),rows=[];let confirmed=0,uncertain=0;
+ const tokens=parseWords(rawText),rows=[],seen=new Set();let confirmed=0,uncertain=0,duplicates=0,existing=0;
  const heading=node('h3',`Tunnistetut sanat (${tokens.length})`);results.append(heading);
  if(!tokens.length){results.append(node('p','Kuvasta ei löytynyt sanoja.','status'));return}
- results.append(node('p','Tarkista perusmuodot ja käännökset. Lauseen englanninnos on vain asiayhteysvihje, ei varmistettu sanakirjakäännös. Korjaa väärät ehdotukset ennen tallennusta.','muted'));
- const seen=new Set();
+ results.append(node('p','Sama perusmuoto näytetään vain kerran. Jo tallennetut sanat jätetään pois. Käännökset ovat ehdotuksia: tarkista ne asiayhteydestä ennen tallennusta.','muted'));
  for(let i=0;i<tokens.length;i++){
-   const original=tokens[i],analysis=analyses[i]||{},suggestions=Array.isArray(analysis.lemmas)?analysis.lemmas:[];
+   const original=tokens[i],analysis=analyses[i]||{},suggestions=Array.isArray(analysis.lemmas)?analysis.lemmas.filter(Boolean):[];
    const lemma=suggestions[0]||original;
-   const key=original.toLocaleLowerCase('fi');if(seen.has(key))continue;seen.add(key);
+   const key=lemma.trim().toLocaleLowerCase('fi');
+   if(seen.has(key)){duplicates++;continue}seen.add(key);
+   if(words.some(w=>w.fi.trim().toLocaleLowerCase('fi')===key)){existing++;continue}
    if(suggestions.length)confirmed++;else uncertain++;
    const row=node('div',undefined,'ocrline');
    const from=node('span',original);from.style.fontWeight='650';from.style.flex='1 1 100%';
    const fi=node('input');fi.type='text';fi.value=lemma;fi.setAttribute('aria-label','Perusmuoto sanalle '+original);
    const en=node('input');en.type='text';en.placeholder='Englanninkielinen käännös';en.setAttribute('aria-label','Käännös sanalle '+original);
-   const arrow=node('span','→');arrow.style.flex='0 0 auto';
-   row.append(from,arrow,fi,en);
+   const arrow=node('span','→');arrow.style.flex='0 0 auto';row.append(from,arrow,fi,en);
    if(suggestions.length>1){
      const sel=node('select');sel.setAttribute('aria-label','Valitse perusmuoto');sel.style.maxWidth='100%';sel.style.padding='9px';
      for(const choice of suggestions){const opt=node('option',choice);opt.value=choice;sel.append(opt)}
-     sel.onchange=()=>{fi.value=sel.value;en.value='';};row.append(sel);
+     sel.onchange=()=>{fi.value=sel.value;en.value='';note.textContent='Perusmuoto vaihdettu – kirjoita tai tarkista käännös';};row.append(sel);
    }
    const note=node('small',suggestions.length>1?'Useita perusmuotoja – valitse oikea':suggestions.length?'Voikko-perusmuoto':'Ei Voikko-analyysiä – tarkista','muted');note.style.flexBasis='100%';
-   row.append(note);results.append(row);
-   const context=node('small','','muted');context.style.flexBasis='100%';context.style.whiteSpace='normal';row.append(context);
-   rows.push({fi,en,original,note,context});
+   const alternatives=node('select');alternatives.className='hide';alternatives.setAttribute('aria-label','Muut käännösvaihtoehdot sanalle '+lemma);alternatives.style.maxWidth='100%';alternatives.style.padding='9px';
+   alternatives.onchange=()=>{if(alternatives.value)en.value=alternatives.value};
+   const context=node('small','','muted');context.style.flexBasis='100%';context.style.whiteSpace='normal';
+   row.append(note,alternatives,context);results.append(row);
+   rows.push({fi,en,original,note,context,alternatives});
  }
- results.insertBefore(node('p',`Voikko tunnisti ${confirmed} perusmuotoa. Tarkistettavia ${uncertain}.`,'muted'),heading.nextSibling);
+ const stats=node('p',`Voikko-perusmuotoja ${confirmed}; tarkistettavia ${uncertain}. Päällekkäisiä ${duplicates}; ennestään tallennettuja ${existing}.`,'muted');results.insertBefore(stats,heading.nextSibling);
  const translationStatus=node('p','','muted');translationStatus.setAttribute('aria-live','polite');
- const saveButton=node('button','Tallenna tarkistetut sanaparit','primary');
+ const saveButton=node('button','Tallenna uudet tarkistetut sanaparit','primary');saveButton.disabled=true;
  const controls=node('div',undefined,'row');controls.style.marginTop='14px';controls.append(saveButton);results.append(controls,translationStatus);
- const fetchTranslations=async()=>{let ok=0,failed=0;const contextTranslations=new Map();
-   // Sequential requests avoid overwhelming the free translation service.
+ const fetchTranslations=async()=>{let ok=0,failed=0,check=0;const contextTranslations=new Map();
    for(let i=0;i<rows.length;i++){
-     const r=rows[i];if(r.en.value.trim())continue;
-     const lemma=r.fi.value.trim();if(!lemma){failed++;continue}
-     translationStatus.textContent=`Haetaan käännöksiä ${i+1}/${rows.length}…`;
+     const r=rows[i],lemma=r.fi.value.trim();if(!lemma){failed++;continue}
+     translationStatus.textContent=`Haetaan käännösehdotuksia ${i+1}/${rows.length}…`;
      try{
-       const key=lemma.toLocaleLowerCase('fi');
-       const translation=verifiedMeanings[key]||await translateWord(lemma);
-       if(translation){r.en.value=translation;ok++}else failed++;
-       const contexts=sentencesFor(r.original,rawText);
-       if(contexts.length&&contexts[0].split(/\s+/).length>=3){
-         const sentence=contexts[0];
-         if(!contextTranslations.has(sentence)){
-           try{contextTranslations.set(sentence,await translateSentence(sentence))}catch{contextTranslations.set(sentence,'')}
+       const candidates=await translateCandidates(lemma);
+       if(candidates.length){
+         r.en.value=candidates[0].value;ok++;
+         if(candidates.length>1){
+           r.alternatives.replaceChildren(node('option','Valitse toinen käännös…'));
+           r.alternatives.firstChild.value='';
+           for(const c of candidates){const opt=node('option',c.value);opt.value=c.value;r.alternatives.append(opt)}
+           r.alternatives.classList.remove('hide');
          }
-         const translatedContext=contextTranslations.get(sentence);
-         r.context.textContent='Asiayhteys: '+sentence+(translatedContext?' → '+translatedContext:'');
-         if(!verifiedMeanings[key])r.note.textContent+=' · Käännös on ehdotus – vertaa asiayhteyteen';
-       }else if(!verifiedMeanings[key])r.note.textContent+=' · Ei lauseyhteyttä – tarkista käännös';
-     }catch{failed++}
+         const certain=candidates[0].source==='tarkistettu sanasto';
+         if(!certain){check++;r.note.textContent+=' · Tarkista käännös';}
+         else r.note.textContent+=' · Tarkistetun sanaston ehdotus';
+       }else{failed++;r.note.textContent+=' · Käännöstä ei löytynyt';}
+       const contexts=sentencesFor(r.original,rawText);
+       if(contexts.length){
+         const sentence=contexts[0];
+         if(sentence.split(/\s+/).length>=3){
+           if(!contextTranslations.has(sentence)){
+             try{contextTranslations.set(sentence,await translateSentence(sentence))}catch{contextTranslations.set(sentence,'')}
+           }
+           const translatedContext=contextTranslations.get(sentence);
+           r.context.textContent='Asiayhteys: '+sentence+(translatedContext?' → '+translatedContext:'');
+         }else r.context.textContent='Alkuperäinen: '+sentence;
+       }
+     }catch{failed++;r.note.textContent+=' · Käännöspalvelu ei vastannut';}
    }
-   translationStatus.textContent=`Käännösehdotuksia: ${ok}. Ilman käännöstä: ${failed}. Asiayhteys näytetään, kun se löytyy; tarkista sanan merkitys ennen tallennusta.`;
+   saveButton.disabled=false;
+   translationStatus.textContent=`Käännösehdotuksia ${ok}, ilman käännöstä ${failed}. Tarkistettavia käännöksiä ${check}. Voit muokata kaikkia ehdotuksia ennen tallennusta.`;
  };
  saveButton.onclick=()=>{
-   let added=0,missing=0;
-   for(const r of rows){if(!r.fi.value.trim()||!r.en.value.trim()){missing++;continue}if(add(r.fi.value,r.en.value))added++}
-   translationStatus.textContent=`Tallennettu ${added} uutta sanaparia. ${missing} ilman perusmuotoa tai käännöstä. Päällekkäisiä ei lisätty.`;
+   let added=0,missing=0,dupes=0;const batch=new Set();
+   for(const r of rows){
+     const fi=r.fi.value.trim(),en=r.en.value.trim(),key=fi.toLocaleLowerCase('fi');
+     if(!fi||!en){missing++;continue}
+     if(batch.has(key)||words.some(w=>w.fi.trim().toLocaleLowerCase('fi')===key)){dupes++;continue}
+     batch.add(key);if(add(fi,en))added++;
+   }
+   translationStatus.textContent=`Tallennettu ${added} uutta sanaparia. ${missing} puutteellista ja ${dupes} päällekkäistä ohitettu.`;
  };
  const details=document.createElement('details');details.style.marginTop='14px';details.append(node('summary','Näytä tunnistettu teksti'));
  const pre=node('pre',rawText);pre.style.whiteSpace='pre-wrap';pre.style.overflowWrap='anywhere';details.append(pre);results.append(details);
- // Fetch translation suggestions automatically after Voikko analysis.
- void fetchTranslations();
+ if(rows.length)void fetchTranslations();else translationStatus.textContent='Ei uusia sanoja tallennettavaksi.';
 }
 $('scan').onclick=async()=>{
  const file=$('photo').files[0];if(!file){alert('Valitse ensin kuva.');return}
