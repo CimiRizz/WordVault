@@ -1,6 +1,6 @@
 <!doctype html><html lang="fi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172e4d"><title>WordVault</title><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="WordVault"><style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v1.8</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
-<section id="add"><div class="card"><h2>Poimi sanat kuvasta</h2><p class="muted">Ota kuva oppikirjan sanalistasta tai valitse kuva. Sovellus tunnistaa kuvasta suomenkieliset sanat, muuntaa tunnetut taivutusmuodot perusmuotoon ja hakee perusmuodoille englanninkieliset käännösehdotukset automaattisesti. Tarkista ehdotukset ennen tallennusta. Jos kuvassa on valmiita sanapareja, ne tunnistetaan myös. Sanoja ei voi lisätä erikseen käsin tässä versiossa.</p><input id="photo" type="file" accept="image/*" capture="environment"><button id="scan" class="primary">Tunnista teksti</button><div id="ocrStatus" class="muted" aria-live="polite"></div><progress id="ocrProgress" max="1" value="0" class="hide"></progress><div id="ocrResults"></div></div></section>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v2.0</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
+<section id="add"><div class="card"><h2>Poimi sanat kuvasta</h2><p class="muted">Kuvaa suomenkielistä tekstiä. WordVault poimii tekstistä yksittäiset sanat ja näyttää niiden perusmuodot. Tässä vaiheessa ei haeta käännöksiä eikä tallenneta uusia sanoja. Epävarmat perusmuodot merkitään tarkistettaviksi.</p><input id="photo" type="file" accept="image/*" capture="environment"><button id="scan" class="primary">Tunnista teksti</button><div id="ocrStatus" class="muted" aria-live="polite"></div><progress id="ocrProgress" max="1" value="0" class="hide"></progress><div id="ocrResults"></div></div></section>
 <section id="words" class="hide"><div class="card"><h2>Omat sanat</h2><input id="search" type="text" placeholder="Hae sanoja…" aria-label="Hae sanoja"><div id="wordList"></div></div><div class="card"><h2>Varmuuskopio</h2><p class="muted">Sanat säilyvät tämän selaimen muistissa. Selaintietojen poistaminen voi hävittää ne. Vie varmuuskopio säännöllisesti.</p><div class="row"><button id="export">Vie JSON-tiedosto</button><button id="importButton">Tuo JSON-tiedosto</button></div><input id="importFile" type="file" accept="application/json,.json" class="hide"></div></section>
 <section id="quiz" class="hide"><div class="card"><h2>Kuulustelu</h2><p class="muted">Kirjoita englanninkielinen käännös. Väärin vastatut sanat tulevat useammin uudelleen.</p><div id="quizArea"></div></div></section><footer>WordVault MVP · Sanat tallennetaan vain tämän laitteen selaimeen.</footer></main>
 <script>
@@ -120,72 +120,24 @@ async function translateWord(word){
    translationCache.set(normalized,translated);return translated;
  }finally{clearTimeout(timer)}
 }
-function showPairs(pairs,rawText){
+function showLemmas(rawText){
  const results=$('ocrResults');results.replaceChildren();
- const unmatched=parseWords(rawText); // Show all OCR words, including those appearing in pairs, for transparency
- results.append(node('p',`Löytyi ${pairs.length} sanaparia. Kuvasta erotettiin ${unmatched.length} yksittäistä sanaa. Sovellus ehdottaa perusmuotoja ja hakee käännökset niille.`,'muted'));
- const rows=[];
- function addRow(fiValue,enValue){
+ const tokens=parseWords(rawText);
+ const unique=new Set();let confirmed=0,uncertain=0;
+ const heading=node('h3',`Tunnistetut sanat (${tokens.length})`);results.append(heading);
+ if(!tokens.length){results.append(node('p','Kuvasta ei löytynyt sanoja. Kokeile tarkempaa kuvaa.','status'));return}
+ results.append(node('p','Vasemmalla kuvasta tunnistettu sana, oikealla perusmuotoehdotus. Epävarmat sanat säilyvät alkuperäisessä muodossa, jotta niitä ei muuteta väärin. Voit korjata perusmuodon itse.','muted'));
+ for(const original of tokens){
+   const result=suggestLemma(original);if(result.certain)confirmed++;else uncertain++;
+   const key=result.lemma.toLocaleLowerCase('fi');if(unique.has(key))continue;unique.add(key);
    const row=node('div',undefined,'ocrline');
-   const fi=node('input'),en=node('input'),remove=node('button','×');
-   const suggestion=suggestLemma(fiValue);
-   fi.type='text';fi.value=suggestion.lemma;fi.setAttribute('aria-label','Sanan perusmuoto');
-   en.type='text';en.value=enValue;en.placeholder='Englanninkielinen käännös';en.setAttribute('aria-label','Englanninkielinen käännös');
-   remove.type='button';remove.title='Poista ehdotus';
-   const record={row,fi,en};rows.push(record);
-   if(fiValue.toLocaleLowerCase('fi')!==suggestion.lemma.toLocaleLowerCase('fi')||!suggestion.certain){
-     const info=node('small',`Kuvassa: ${fiValue} → ${suggestion.certain?'perusmuoto':'perusmuotoa ei varmistettu'}: ${suggestion.lemma}${suggestion.certain?'':' (tarkista ja korjaa tarvittaessa)'}`,'muted');info.style.flexBasis='100%';row.append(info);
-   }
-   remove.onclick=()=>{row.remove();record.removed=true};
-   row.append(fi,en,remove);results.append(row);
+   const from=node('span',original);from.style.fontWeight='650';
+   const arrow=node('span','→');arrow.style.flex='0 0 auto';
+   const to=node('input');to.type='text';to.value=result.lemma;to.setAttribute('aria-label','Perusmuoto sanalle '+original);
+   const note=node('small',result.certain?'Tunnettu muoto':'Ei varmistettu – tarkista','muted');note.style.flexBasis='100%';
+   row.append(from,arrow,to,note);results.append(row);
  }
- if(pairs.length){results.append(node('h3','Tunnistetut sanaparit'));for(const pair of pairs)addRow(pair.fi,pair.en)}
- if(unmatched.length){
-   results.append(node('h3',`Yksittäiset sanat (${unmatched.length})`));
-   results.append(node('p','Tunnetut taivutusmuodot muunnetaan perusmuotoon. Epävarmoja sanoja ei enää muuteta arvaamalla. Tarkista alkuperäinen sana ja tarvittaessa korjaa perusmuoto ennen tallennusta.','muted'));
-   const paired=new Set(pairs.flatMap(p=>parseWords(p.fi+' '+p.en).map(w=>w.toLocaleLowerCase('fi'))));
-   const addedLemmas=new Set(pairs.map(p=>suggestLemma(p.fi).lemma.toLocaleLowerCase('fi')));
-   for(const word of unmatched){const lemma=suggestLemma(word).lemma.toLocaleLowerCase('fi');if(!paired.has(word.toLocaleLowerCase('fi'))&&!addedLemmas.has(lemma)){addRow(word,'');addedLemmas.add(lemma)}}
-   const preview=node('p','Kaikki tunnistetut sanat: '+unmatched.join(' · '),'muted');results.append(preview);
- }
- // Automatically translate words without an OCR-detected translation.
- const translateButton=node('button','Hae puuttuvat käännökset','primary');
- const translationStatus=node('p','','muted');
- translateButton.style.marginTop='12px';
- translateButton.onclick=async()=>{
-   const pending=rows.filter(r=>!r.removed&&!r.en.value.trim()&&r.fi.value.trim());
-   if(!pending.length){translationStatus.textContent='Kaikilla sanoilla on jo käännös tai tarkistettavaa ei ole.';return}
-   translateButton.disabled=true;
-   let success=0,failed=0;
-   // Rate-limit requests to the free translation service. Only the selected word is sent.
-   for(let i=0;i<pending.length;i++){
-     const r=pending[i];translationStatus.textContent=`Haetaan käännöksiä ${i+1}/${pending.length}…`;
-     try{
-       const translation=await translateWord(r.fi.value);
-       if(translation){r.en.value=translation;success++}else failed++;
-     }catch{failed++}
-     if(i<pending.length-1)await new Promise(resolve=>setTimeout(resolve,350));
-   }
-   translationStatus.textContent=`Käännösehdotuksia löytyi ${success}/${pending.length}.${failed?' '+failed+' sanalle ei saatu käännöstä.':''} Tarkista ehdotukset ennen tallennusta.`;
-   translateButton.disabled=false;
- };
- results.append(translateButton,translationStatus);
- // Keep OCR and word segmentation usable even if translation service is unavailable.
- if(rows.some(r=>!r.en.value.trim()))translateButton.click();
- if(!pairs.length&&!unmatched.length)results.append(node('p','Kuvasta ei löytynyt sanoja. Kokeile tarkempaa kuvaa.','status'));
- const saveAll=node('button','Tallenna tunnistetut sanaparit','primary');saveAll.style.marginTop='14px';
- const feedback=node('p',undefined,'muted');
- saveAll.onclick=()=>{
-   let saved=0,duplicates=0,missing=0;
-   for(const r of rows){if(r.removed)continue;
-     const fi=r.fi.value.trim(),en=r.en.value.trim();
-     if(!fi)continue;if(!en){missing++;continue}
-     if(add(fi,en))saved++;else duplicates++;
-   }
-   feedback.textContent=`Tallennettu ${saved} uutta sanaparia${duplicates?' · '+duplicates+' oli jo tallennettu':''}${missing?' · '+missing+' ilman käännöstä jätettiin tallentamatta':''}.`;
-   if(saved)tab('words');
- };
- results.append(saveAll,feedback);
+ const summary=node('p',`Sanastosta tunnistettuja muotoja: ${confirmed}. Tarkistettavia: ${uncertain}.`,'muted');results.insertBefore(summary,heading.nextSibling);
  const details=document.createElement('details');details.style.marginTop='14px';details.append(node('summary','Näytä tunnistettu teksti'));
  const pre=node('pre',rawText);pre.style.whiteSpace='pre-wrap';pre.style.overflowWrap='anywhere';details.append(pre);results.append(details);
 }
@@ -197,9 +149,9 @@ $('scan').onclick=async()=>{
    if(!window.Tesseract){await new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=resolve;s.onerror=reject;document.head.append(s)})}
    let worker=await Tesseract.createWorker('fin+eng',1,{logger:m=>{if(m.status)status.textContent=m.status;if(typeof m.progress==='number')$('ocrProgress').value=m.progress}});
    let output;try{output=await worker.recognize(file)}finally{await worker.terminate()}
-   let pairs=parsePairs(output.data.text);
-   status.textContent=`Tunnistus valmis. Löytyi ${pairs.length} sanaparia. ${pairs.length?'Tarkista parit ja tallenna yhdellä painalluksella.':'Jos kuvassa on sanaparit, tarkista tunnistettu teksti ja ota tarvittaessa tarkempi kuva.'}`;
-   showPairs(pairs,output.data.text);
+   const count=parseWords(output.data.text).length;
+   status.textContent=`Tunnistus valmis. Löytyi ${count} erillistä sanaa.`;
+   showLemmas(output.data.text);
  }catch(e){status.textContent='Tekstintunnistus ei onnistunut. Tarkista internetyhteys ja kokeile uudelleen. ('+e.message+')'}
  finally{btn.disabled=false;$('ocrProgress').classList.add('hide')}
 };
