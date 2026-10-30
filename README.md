@@ -1,11 +1,9 @@
-# WordVault 2.5.12 — rivin alun tarkistus (testiversio)
+# WordVault 2.5.13 – OCR-diagnostiikka
 
-Perustuu käyttäjän toimittamaan alkuperäiseen 2.5.10-pakettiin.
+Perustuu version 2.5.10 lähdekoodiin. OCR-tunnistusten suoritusjärjestystä, ehdollisia lisäajoja, rajausta, pisteytystä tai tuloksen valintaa ei muutettu.
 
-- Säilyttää version 2.5.10 ensisijaisen OCR-tunnistuksen ja monirivisen kuvankäsittelyn.
-- Jos vaakasuuntaisen rivin alku näyttää epäilyttävältä (1–2 merkin sana), tunnistaa kuvan vasemman 56 % erikseen.
-- Näyttää erillisen tuloksen tarkistusehdotuksena, mutta **ei koskaan korvaa tai yhdistä** ensisijaista tekstiä automaattisesti.
-- Päivittää PWA-välimuistiversion.
-- Ei muuta Voikkoa, käännöksiä tai sanastoa.
+OCR-vertailu näyttää jokaisesta suoritetusta tunnistuksesta käytetyn kuvan, PSM-asetuksen, raakatekstin, luottamusarvon, sanamäärän ja pistemäärän sekä valitun tuloksen. Mukana on kopioitava diagnostiikkaraportti ilman kuvia.
 
-Testaa alkuperäisillä kuvilla. Tämän selainversion OCR-tarkkuutta ei ole vielä mitattu mobiililaitteella.
+Asennus: korvaa kuusi tiedostoa GitHubin repositorion juuressa, tee commit ja odota Renderin julkaisua. Älä tyhjennä sivuston tietoja, sillä sanasto on paikallisesti tallennettu.
+
+Huom: Ehdolliset OCR-ajot suoritetaan edelleen vain, kun 2.5.10:n alkuperäiset ehdot täyttyvät. Testaa molemmat alkuperäiset kuvat ja kopioi diagnostiikka.
