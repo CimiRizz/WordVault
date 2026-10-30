@@ -1,11 +1,7 @@
-# WordVault 2.5.10 — automaattinen tekstialue (testiversio)
+# WordVault 2.5.11 – rivin alun OCR-korjaus (testiversio)
 
-Korvaa GitHubin juuritiedostot tämän paketin tiedostoilla. Render julkaisee muutoksen main-haaran commitin jälkeen.
+Pohjana v2.5.10. Näyttökuvan yhden rivin OCR:ään lisätty vasen/oikea ja ylä/alamarginaali sekä tarvittaessa suurennettu alkuperäiskuva. Kolme ehdokasta enintään; tuloksia ei yhdistetä. Pienissä pistemääräeroissa suositaan reunamarginaaleilla tunnistettua tulosta. Pystysuuntaisten kuvien käsittely, Voikko, sanasto ja harjoittelu ennallaan.
 
-- Vaakasuuntaiselle yhden rivin kuvalle kontrasti + Tesseract PSM 7.
-- Pystysuuntaiselle moniriviselle kuvalle kuvapohjainen keskialueen tunnistus ja PSM 3; tarvittaessa rajattu PSM 11.
-- Enintään kolme OCR-ajoa, ei sanalistojen yhdistämistä, yli 35 sanan ehdokkaat hylätään pisteytyksessä.
-- Raakateksti hyväksytään edelleen käyttäjän toimesta ennen Voikkoa.
-- Sanasto ja harjoittelu ennallaan.
+Lataa kaikki kuusi tiedostoa GitHub-repositorion juureen ja tee commit main-haaraan. Service workerin välimuistin versio päivitetty.
 
-HUOM: Selaimen Tesseract.js-tuloksia ei ole tässä ympäristössä testattu puhelimella. Rajaus on heuristinen eikä takaa kaikkien kuvien onnistumista.
+Tämä on testiversio: selaimen Tesseract.js-tarkkuutta ei ole vahvistettu alkuperäisillä testikuvilla.
