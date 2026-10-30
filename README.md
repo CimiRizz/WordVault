@@ -1,5 +1,7 @@
-WordVault 2.5.7 – automaattinen OCR
+WordVault 2.5.8 – OCR-korjaus
 
-Poistettu manuaaliset asetteluasetukset. Koko kuvan OCR sekä automaattinen rivijako ja rivikohtainen OCR, jos kuvassa havaitaan useita rivejä. OCR:n raakateksti säilyy muokattavana. Voikko ja sanasto ennallaan.
+Käyttäjä voi rajata kuvaan tekstialueen. OCR tehdään vain kerran (PSM 6), eikä tulosta valita sanamäärän perusteella. Kaikki OCR-tulokset tarkistetaan/muokataan ennen Voikko-analyysiä. Yli 80 sanan analyysi estetään. Voikko, käännökset, tallennetut sanat ja harjoittelu säilyvät.
 
-Huom: testaus oikealla puhelimella on vielä tehtävä. Lataa kuusi tiedostoa GitHub-repositorion juureen.
+Asennus: kopioi ZIP:n kuusi tiedostoa GitHub-repositorion juureen ja odota Render Static Site -julkaisua. Voikko-Docker-palvelua ei muuteta.
+
+HUOM: OCR-tarkkuutta ei ole testattu oikeassa mobiiliselaimessa.
