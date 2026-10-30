@@ -1,6 +1,6 @@
 <!doctype html><html lang="fi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172e4d"><title>WordVault</title><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="WordVault"><style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v2.5.8 · rajaa teksti ja tarkista OCR</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
-<section id="add"><div class="card"><h2>Poimi sanat kuvasta</h2><p class="muted">Kuvaa suomenkielistä tekstiä. WordVault poimii tekstistä yksittäiset sanat ja näyttää niiden perusmuodot. Voikko muuttaa tunnistetut sanat perusmuotoon. WordVault hakee niille englanninkieliset käännösehdotukset, jotka voit tarkistaa ja tallentaa kuulustelua varten.</p><label for="apiUrl">Voikko-palvelun osoite</label><input id="apiUrl" type="text" placeholder="https://oma-voikko.onrender.com" autocomplete="url"><p class="muted">Osoite asetetaan kerran. Valokuvat käsitellään puhelimessa; vain tunnistetut sanat lähetetään Voikko-palveluun.</p><div class="row"><button id="cameraButton" type="button">📷 Ota kuva kameralla</button><button id="galleryButton" type="button">🖼️ Valitse galleriasta</button></div><input id="cameraPhoto" class="hide" type="file" accept="image/*" capture="environment"><input id="galleryPhoto" class="hide" type="file" accept="image/*"><p id="selectedPhoto" class="muted">Kuvaa ei ole valittu.</p><div id="photoFrame" class="hide" style="position:relative;width:100%;margin:8px 0;touch-action:none;user-select:none"><img id="photoPreview" alt="Valittu kuva" draggable="false" style="display:block;width:100%;height:auto;border-radius:10px"><canvas id="selectionCanvas" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair"></canvas></div><div class="row"><button id="resetCrop" type="button">Poista rajaus</button></div><p class="muted">Rajaa kuvasta vain luettava teksti vetämällä sormella tai hiirellä kuvan yli. Tämä auttaa erityisesti silloin, kun kuvassa on paljon muuta sisältöä.</p><p class="muted">Tekstin tunnistus toimii automaattisesti. Voit tarkistaa raakatekstin ennen sanojen tallentamista.</p><div class="row"><button id="scan" class="primary">Tunnista teksti</button></div><div id="ocrStatus" class="muted" aria-live="polite"></div><progress id="ocrProgress" max="1" value="0" class="hide"></progress><div id="ocrResults"></div></div></section>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a2c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#172e4d;color:white;padding:24px 18px}header .in,main{max-width:740px;margin:auto}h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#cfdbeb}main{padding:18px 14px 50px}nav{display:flex;gap:7px;margin-bottom:18px}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:12px 14px;background:#e4ebf3;color:#193450;font-weight:650}nav button{flex:1;padding:11px 5px}nav button.active,.primary{background:#1765b0;color:white}.card{background:white;border:1px solid #e1e7ee;border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #1d3b5a08}.card h2{margin:0 0 12px;font-size:20px}label{display:block;font-weight:650;font-size:14px;margin:10px 0 5px}input[type=text],textarea{width:100%;padding:13px;border:1px solid #c7d2df;border-radius:10px;background:white;color:#152a40}input[type=file]{width:100%;margin:12px 0}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.muted{color:#667589;font-size:14px;line-height:1.5}.hide{display:none!important}.word{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f5}.word:last-child{border:0}.word strong{display:block}.word small{color:#667589}.word button{flex:0 0 auto}.status{background:#eef6ff;border-radius:10px;padding:12px;margin:12px 0}.question{text-align:center;padding:24px 10px}.question strong{font-size:34px}.question .muted{margin:0 0 10px}.result{padding:12px;border-radius:9px;background:#e8f5eb;margin:12px 0}.wrong{background:#fff0e8}.ocrline{display:flex;gap:8px;align-items:center;border-bottom:1px solid #e9edf3;padding:8px 0}.ocrline input{margin:0}.ocrline span{flex:1;overflow-wrap:anywhere}.ocrline input{flex:1;min-width:100px}.ocrline{flex-wrap:wrap}.ocrline button{flex:0 0 auto}footer{font-size:12px;color:#667589;text-align:center;padding:16px}#ocrProgress{height:8px;width:100%}button:disabled{opacity:.5;cursor:wait}</style></head><body><header><div class="in"><h1>📘 WordVault</h1><p>Kerää sanoja. Harjoittele. Muista. · v2.5.9 · automaattinen kuvankäsittely</p></div></header><main><nav><button class="active" data-tab="add">Kuvaa sanat</button><button data-tab="words">Sanat <span id="count">0</span></button><button data-tab="quiz">Kuulustelu</button></nav>
+<section id="add"><div class="card"><h2>Poimi sanat kuvasta</h2><p class="muted">Kuvaa suomenkielistä tekstiä. WordVault poimii tekstistä yksittäiset sanat ja näyttää niiden perusmuodot. Voikko muuttaa tunnistetut sanat perusmuotoon. WordVault hakee niille englanninkieliset käännösehdotukset, jotka voit tarkistaa ja tallentaa kuulustelua varten.</p><label for="apiUrl">Voikko-palvelun osoite</label><input id="apiUrl" type="text" placeholder="https://oma-voikko.onrender.com" autocomplete="url"><p class="muted">Osoite asetetaan kerran. Valokuvat käsitellään puhelimessa; vain tunnistetut sanat lähetetään Voikko-palveluun.</p><div class="row"><button id="cameraButton" type="button">📷 Ota kuva kameralla</button><button id="galleryButton" type="button">🖼️ Valitse galleriasta</button></div><input id="cameraPhoto" class="hide" type="file" accept="image/*" capture="environment"><input id="galleryPhoto" class="hide" type="file" accept="image/*"><p id="selectedPhoto" class="muted">Kuvaa ei ole valittu.</p><div id="photoFrame" class="hide" style="position:relative;width:100%;margin:8px 0;touch-action:none;user-select:none"><img id="photoPreview" alt="Valittu kuva" draggable="false" style="display:block;width:100%;height:auto;border-radius:10px"><canvas id="selectionCanvas" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair"></canvas></div><div class="row"><button id="resetCrop" type="button">Poista rajaus</button></div><p class="muted">Rajaa kuvasta vain luettava teksti vetämällä sormella tai hiirellä kuvan yli. Tämä auttaa erityisesti silloin, kun kuvassa on paljon muuta sisältöä.</p><p class="muted">Tekstin tunnistus valitsee automaattisesti alkuperäisen tai kontrastikorjatun kuvan. Voit tarkistaa raakatekstin ennen sanojen tallentamista.</p><div class="row"><button id="scan" class="primary">Tunnista teksti</button></div><div id="ocrStatus" class="muted" aria-live="polite"></div><progress id="ocrProgress" max="1" value="0" class="hide"></progress><div id="ocrResults"></div></div></section>
 <section id="words" class="hide"><div class="card"><h2>Omat sanat</h2><input id="search" type="text" placeholder="Hae sanoja…" aria-label="Hae sanoja"><div id="wordList"></div><div class="row" style="margin-top:16px"><button id="deleteAllWords" style="background:#fce8e8;color:#a51c30">Poista kaikki sanat</button></div></div><div class="card"><h2>Varmuuskopio</h2><p class="muted">Sanat säilyvät tämän selaimen muistissa. Selaintietojen poistaminen voi hävittää ne. Vie varmuuskopio säännöllisesti.</p><div class="row"><button id="export">Vie JSON-tiedosto</button><button id="importButton">Tuo JSON-tiedosto</button></div><input id="importFile" type="file" accept="application/json,.json" class="hide"></div></section>
 <section id="quiz" class="hide"><div class="card"><h2>Kuulustelu</h2><p class="muted">Harjoittele erääntyneitä sanoja. Oikeat vastaukset pidentävät kertausväliä ja väärät tuovat sanan pian uudelleen.</p><div id="studyStats" class="status" aria-live="polite"></div><div class="row"><button id="studyDue" class="primary">Kertaa nyt</button><button id="studyHard">Vaikeat sanat</button><button id="studyAll">Kaikki sanat</button></div><div id="quizArea"></div></div></section><footer>WordVault MVP · Sanat tallennetaan vain tämän laitteen selaimeen.</footer></main>
 <script>
@@ -371,11 +371,59 @@ function cropImage(canvas){
  const out=document.createElement('canvas');out.width=sw;out.height=sh;
  out.getContext('2d').drawImage(canvas,sx,sy,sw,sh,0,0,sw,sh);return out;
 }
-function showReview(data,elapsed){
+// Two bounded OCR candidates: original and a contrast-normalized variant.
+// Never combine candidate word lists: this previously created hundreds of false words.
+function makeContrastVariant(source){
+ const out=document.createElement('canvas');out.width=source.width;out.height=source.height;
+ const ctx=out.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0);
+ const image=ctx.getImageData(0,0,out.width,out.height),px=image.data;
+ const hist=new Uint32Array(256);let dark=0,bright=0;
+ for(let i=0;i<px.length;i+=4){const g=Math.round(.299*px[i]+.587*px[i+1]+.114*px[i+2]);hist[g]++;if(g<85)dark++;if(g>170)bright++}
+ const count=px.length/4;let low=0,high=255,cum=0;
+ for(let i=0;i<256;i++){cum+=hist[i];if(cum>=count*.06){low=i;break}}
+ cum=0;for(let i=255;i>=0;i--){cum+=hist[i];if(cum>=count*.06){high=i;break}}
+ // Dark backgrounds with light letters need inversion; Tesseract expects dark text on light.
+ const invert=dark>bright*1.3;
+ const span=Math.max(30,high-low);
+ for(let i=0;i<px.length;i+=4){const g=.299*px[i]+.587*px[i+1]+.114*px[i+2];
+  let v=Math.max(0,Math.min(255,Math.round((g-low)*255/span)));
+  if(invert)v=255-v;
+  px[i]=px[i+1]=px[i+2]=v;
+ }
+ ctx.putImageData(image,0,0);return {canvas:out,invert,low,high};
+}
+function ocrQuality(data){
+ const raw=String(data.text||'');const words=parseWords(raw);
+ const confidence=Math.max(0,Math.min(100,Number(data.confidence)||0));
+ const letters=(raw.match(/[\p{L}]/gu)||[]).length;
+ const weird=(raw.match(/[^\p{L}\p{N}\s.,!?;:()'’\-]/gu)||[]).length;
+ const short=words.filter(w=>w.length<=2).length;
+ // Confidence dominates. Penalize noisy output, not low word count: short signs are valid.
+ const score=confidence-3*weird-2*short-Math.max(0,words.length-35)*2;
+ return {score,words:words.length,confidence,letters};
+}
+async function recognizeSafely(worker,prepared,status){
+ await worker.setParameters({tessedit_pageseg_mode:'6',preserve_interword_spaces:'1'});
+ status.textContent='OCR: tunnistetaan alkuperäinen kuva…';
+ const first=(await worker.recognize(prepared)).data;
+ const a=ocrQuality(first);
+ // A second pass is worthwhile only when the first result is demonstrably weak.
+ if(a.confidence>=82&&a.words>0&&a.words<=35&&a.score>=70)
+  return {data:first,method:'alkuperäinen kuva',first:a,second:null};
+ status.textContent='OCR: tarkistetaan kontrastikorjattu kuva…';
+ const enhanced=makeContrastVariant(prepared);
+ const second=(await worker.recognize(enhanced.canvas)).data;
+ const b=ocrQuality(second);
+ // Require a meaningful quality improvement; avoid selecting a noisy long result.
+ const useSecond=b.score>a.score+5&&b.words<=Math.max(35,a.words*2);
+ return {data:useSecond?second:first,method:useSecond?'kontrastikorjattu kuva':'alkuperäinen kuva',first:a,second:b};
+}
+function showReview(data,elapsed,method,diagnostics){
  const results=$('ocrResults');results.replaceChildren();
  const raw=String(data.text||'').trim();const tokens=parseWords(raw);
  const confidence=Number(data.confidence)||0;
- const p=node('p',`OCR ${elapsed} s · varmuus ${confidence.toFixed(0)} % · ${tokens.length} eri sanaa. Tarkista ja korjaa teksti ennen Voikko-analyysiä.`,'status');results.append(p);
+ const p=node('p',`OCR ${elapsed} s · ${method} · varmuus ${confidence.toFixed(0)} % · ${tokens.length} eri sanaa. Tarkista teksti ennen Voikko-analyysiä.`,'status');results.append(p);
+ const debug=document.createElement('details');debug.append(node('summary','OCR-vertailun tiedot'));const pre=node('pre',JSON.stringify(diagnostics,null,2));pre.style.whiteSpace='pre-wrap';debug.append(pre);results.append(debug);
  if(tokens.length>=40||confidence<45){results.append(node('p','OCR-tulos on epävarma tai sisältää poikkeuksellisen paljon sanoja. Rajaa kuvasta vain teksti ja tunnista uudelleen. Virheellisiä sanoja ei lähetetä automaattisesti Voikkoon.','result wrong'))}
  const label=node('label','Tunnistettu raakateksti (muokattavissa)');label.htmlFor='ocrRawEditor';results.append(label);
  const editor=node('textarea');editor.id='ocrRawEditor';editor.value=raw;editor.style.minHeight='110px';results.append(editor);
@@ -397,12 +445,9 @@ $('scan').onclick=async()=>{
   status.textContent='Valmistellaan kuvaa…';
   const prepared=cropImage(await prepareOcrImage(file));
   const worker=await getOcrWorker(status);
-  // PSM 6: a uniform text block, best suited to a user-selected text region.
-  await worker.setParameters({tessedit_pageseg_mode:'6',preserve_interword_spaces:'1'});
-  status.textContent='OCR: tunnistetaan valittu tekstialue…';
-  const data=(await worker.recognize(prepared)).data;
+  const outcome=await recognizeSafely(worker,prepared,status);
   const seconds=((performance.now()-started)/1000).toFixed(1);
-  showReview(data,seconds);
+  showReview(outcome.data,seconds,outcome.method,{original:outcome.first,contrast:outcome.second});
   status.textContent='OCR valmis '+seconds+' s. Tarkista raakateksti ennen jatkamista.';
  }catch(e){status.textContent='Käsittely ei onnistunut: '+e.message}
  finally{btn.disabled=false;$('ocrProgress').classList.add('hide')}

@@ -1,7 +1,1 @@
-WordVault 2.5.8 – OCR-korjaus
-
-Käyttäjä voi rajata kuvaan tekstialueen. OCR tehdään vain kerran (PSM 6), eikä tulosta valita sanamäärän perusteella. Kaikki OCR-tulokset tarkistetaan/muokataan ennen Voikko-analyysiä. Yli 80 sanan analyysi estetään. Voikko, käännökset, tallennetut sanat ja harjoittelu säilyvät.
-
-Asennus: kopioi ZIP:n kuusi tiedostoa GitHub-repositorion juureen ja odota Render Static Site -julkaisua. Voikko-Docker-palvelua ei muuteta.
-
-HUOM: OCR-tarkkuutta ei ole testattu oikeassa mobiiliselaimessa.
+WordVault 2.5.9 – OCR-kuvankäsittelyn hallittu testiversio.\n\nOCR vertaa alkuperäistä ja tarvittaessa kontrastikorjattua kuvaa. Tuloksia ei yhdistetä; valinta painottaa luottamusarvoa ja torjuu kohinaa. Näytä OCR-vertailun tiedot avaa diagnostiikan. Rajaus ja raakatekstin hyväksyntä säilyvät. Voikko-palvelinta ei muuteta.\n\nAsenna ZIP:n kuusi tiedostoa GitHub-repositorion juureen. Renderin julkaisu ja PWA-päivitys vaaditaan. Mobiili-OCR:n tarkkuutta ei ole vielä validoitu.\n
