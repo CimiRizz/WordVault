@@ -1,5 +1,1 @@
-WordVault 1.3 – automaattinen suomi–englanti-sanaparien tunnistus
-
-Pura ZIP ja korvaa kaikki tiedostot GitHub-projektin juuressa. Render Static Site julkaisee muutokset.
-
-OCR tunnistaa esimerkiksi: kirja – book, koira - dog, talo: house, sekä tabulaattorilla tai usealla välilyönnillä erotetut parit. Tunnistettuja pareja voi korjata ennen tallennusta. Käännöksiä ei arvata. Tallennetut sanat säilyvät aiemmassa paikallisessa muistissa.
+WordVault 1.4 – OCR-virkkeiden pilkkominen yksittäisiksi sanoiksi.\n\nKorvaa GitHub-projektin seitsemän tiedostoa ja odota Renderin julkaisua. PWA-välimuistin versio on nostettu.\n\nTunnistetut valmiit sanaparit tallennetaan yhdellä painalluksella. Jos OCR tuottaa vain virkkeen, ohjelma näyttää erikseen jokaisen sanan. Käännöksiä ei arvata; yksittäinen sana tallentuu vasta kun käännös on täytetty. Tallennetut sanat säilyvät paikallisessa muistissa.\n
