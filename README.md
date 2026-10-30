@@ -1,5 +1,7 @@
-WordVault 2.5.4 – kamera ja galleria
+# WordVault 2.5.5 – OCR-korjaus
 
-Lisätty erilliset kameran ja gallerian valintapainikkeet, kuvien esikatselu ja tarkempi OCR-uusintayritys, jos sanoja ei löydy. Voikko API, tallennus ja harjoittelu ennallaan.
+Korvaa GitHub-repositorion juuren kuusi frontend-tiedostoa ZIP-paketin tiedostoilla. Älä muuta Voikko-Docker-palvelua.
 
-Päivitä ZIP-paketin kuusi tiedostoa GitHubin main-haaraan. Älä muuta api.py- tai Dockerfile-tiedostoja.
+Muutokset: kuvien enimmäissivu 3000 px, alkuperäinen väri säilyy, OCR PSM 6 ja tarvittaessa PSM 11 / PSM 7, raakateksti ja varmuus näkyvät ennen Voikkoa, ei sanakohtaista luottamusarvokarsintaa, palvelutyöntekijän välimuistin versio päivitetty.
+
+Huomio: OCR-tunnistuksen oikeellisuutta todellisilla kamerakuvilla ei ole vielä vahvistettu. Tesseractin varmuusarvo ei takaa oikeaa tekstiä.
