@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: wordvault
+    runtime: static
+    buildCommand: echo "WordVault static PWA"
+    staticPublishPath: .
