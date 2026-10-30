@@ -1,7 +1,5 @@
-WordVault 2.5.6 – vakaa OCR
+WordVault 2.5.7 – automaattinen OCR
 
-Muutokset: yksi OCR-ajo per kuva; ei automaattista PSM-vertailua. Oletuksena Tesseract PSM 3, valittavissa 6, 7, 11. Raakatekstiä voi korjata ja analysoida uudelleen Voikolla. Kameran/gallerian valinta, sanasto, käännökset ja harjoittelu säilyvät.
+Poistettu manuaaliset asetteluasetukset. Koko kuvan OCR sekä automaattinen rivijako ja rivikohtainen OCR, jos kuvassa havaitaan useita rivejä. OCR:n raakateksti säilyy muokattavana. Voikko ja sanasto ennallaan.
 
-Asennus: kopioi kaikki kuusi tiedostoa GitHub-repositorion juureen. Render Static Site julkaisee muutokset. Voikko Docker-palvelua ei muuteta.
-
-Huom: todellista kameratarkkuutta ei ole testattu käyttäjän kuvilla.
+Huom: testaus oikealla puhelimella on vielä tehtävä. Lataa kuusi tiedostoa GitHub-repositorion juureen.
