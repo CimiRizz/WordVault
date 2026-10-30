@@ -5,7 +5,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     python3 \
     python3-flask \
-    python3-gunicorn \
     python3-libvoikko \
     libvoikko1 \
     voikko-fi \
@@ -21,4 +20,4 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 10000
 
-CMD ["/bin/sh", "-c", "exec /usr/bin/gunicorn --bind 0.0.0.0:${PORT:-10000} --workers 1 --timeout 90 --log-level debug --access-logfile - --error-logfile - api:app"]
+CMD ["python3", "-c", "import os; from api import app; app.run(host='0.0.0.0', port=int(os.environ.get('PORT', '10000')))"]
