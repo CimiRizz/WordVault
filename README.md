@@ -1,9 +1,11 @@
-# WordVault 2.5.13 – OCR-diagnostiikka
+# WordVault 2.5.14 – OCR-asettelukorjaus
 
-Perustuu version 2.5.10 lähdekoodiin. OCR-tunnistusten suoritusjärjestystä, ehdollisia lisäajoja, rajausta, pisteytystä tai tuloksen valintaa ei muutettu.
+Pohja: WordVault 2.5.13. Korjaa tapauksen, jossa 673 × 51 pikselin kaksirivinen teksti tunnistettiin vain PSM 7 -asetuksella.
 
-OCR-vertailu näyttää jokaisesta suoritetusta tunnistuksesta käytetyn kuvan, PSM-asetuksen, raakatekstin, luottamusarvon, sanamäärän ja pistemäärän sekä valitun tuloksen. Mukana on kopioitava diagnostiikkaraportti ilman kuvia.
+- Säilyttää PSM 7:n ensisijaisena leveille kuville.
+- Jos tunnistus on heikko (paras pistemäärä alle 65), kokeilee PSM 6:ta alkuperäiselle kuvalle.
+- Jos tulos on edelleen erittäin heikko (alle 45), kokeilee myös PSM 3:a.
+- Kaikki tunnistukset ja raakatekstit näkyvät edelleen diagnostiikassa.
+- Ei muuta Voikkoa, sanastoa, käännöksiä tai harjoittelua.
 
-Asennus: korvaa kuusi tiedostoa GitHubin repositorion juuressa, tee commit ja odota Renderin julkaisua. Älä tyhjennä sivuston tietoja, sillä sanasto on paikallisesti tallennettu.
-
-Huom: Ehdolliset OCR-ajot suoritetaan edelleen vain, kun 2.5.10:n alkuperäiset ehdot täyttyvät. Testaa molemmat alkuperäiset kuvat ja kopioi diagnostiikka.
+Huomaa: PSM 6 on korjausehdokas, ei vielä mobiilissa todennettu tulos. Testaa erityisesti Leo ja Elsa -kuvalla.
