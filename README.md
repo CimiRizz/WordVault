@@ -1,15 +1,18 @@
-# WordVault 2.4
+# WordVault 2.5 – älykäs harjoittelu
 
-Päivitys 2.3.1-versiosta. Säilyttää OCR:n, Voikko-rajapinnan, paikallisen sanavaraston ja kuulustelun.
+Perustuu toimivaan WordVault 2.4 -versioon. OCR, Voikko ja käännökset säilyvät ennallaan.
 
-Uutta:
-1. Sama Voikko-perusmuoto näkyy vain kerran kuvakohtaisesti.
-2. Käännöksille käytetään tarkistettua pientä sanastoa ja MyMemoryn vastausten suodatusta; epävarmat ehdotukset merkitään. Tämä EI ole luotettava sanakirjavalidointi.
-3. Mahdolliset vaihtoehtoiset MyMemory-käännökset näytetään valikossa.
-4. Alkuperäinen lause ja mahdollinen lausekäännös näkyvät asiayhteytenä. Lausekäännös ei vahvista yksittäisen sanan merkitystä.
-5. Aiemmin tallennettuja suomenkielisiä perusmuotoja ei ehdoteta uudelleen. Tallennus ohittaa myös käsin muokatut duplikaatit.
+## Uutta
+- Kertaa nyt: näyttää vain erääntyneet sanat (enintään 20 / harjoitus).
+- Vaikeat sanat: harjoittelee aiemmin väärin vastattuja sanoja.
+- Kaikki sanat: harjoittelee myös sanoja, joiden kertaus ei ole vielä ajankohtainen.
+- Oikein vastattu sana siirtyy 1, 3 ja myöhemmin pidemmille kertausväleille.
+- Väärin vastattu sana siirtyy uudelleen kerrattavaksi 5 minuutin kuluttua.
+- Näyttää sanaston, erääntyvien, hyvin opittujen ja vaikeiden sanojen määrät.
+- Oppimishistoria tallentuu sanan mukana samaan localStorage-avaimeen `wordvault-mvp-1` ja kulkee JSON-viennissä.
 
-## Julkaisu
-Päivitä GitHubin WordVault Static Site -tiedostot: index.html, sw.js, manifest.webmanifest, icon-192.png, icon-512.png ja README.md. Renderin toimiva Voikko-palvelu (api.py ja Dockerfile) jätetään ennalleen. render.yaml on mukana viitteenä; älä luo uusia palveluita, jos nykyiset toimivat.
+## Päivitys
+Päivitä vain ZIP:n 6 staattista tiedostoa GitHubiin. Säilytä toimivat `api.py` ja `Dockerfile` ennallaan.
 
-Käännökset edellyttävät internetyhteyttä ja MyMemory-palvelu voi rajoittaa kyselyitä. Tarkista ehdotukset ennen tallentamista. Vanha localStorage-avain wordvault-mvp-1 säilyy.
+## Huomio
+Harjoittelu vertaa vastausta valittuun tallennettuun englanninkieliseen käännökseen. Samaa tarkoittavat muut vastineet voivat siksi tulla merkityiksi vääriksi. Kertausväli on yksinkertainen SM-2-tyylinen malli.
