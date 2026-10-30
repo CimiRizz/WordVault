@@ -1,5 +1,10 @@
 services:
   - type: web
+    name: wordvault-voikko
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+  - type: web
     name: wordvault
     runtime: static
     buildCommand: echo "WordVault static PWA"
