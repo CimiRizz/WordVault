@@ -1,12 +1,9 @@
-# WordVault 2.5.16 – hallittu OCR-päivitys
+# WordVault 2.5.17 – sijaintipohjainen OCR-ehdotus
 
-Perustuu alkuperäiseen WordVault 2.5.15 -ZIP-pakettiin.
+Perustuu 2.5.16-versioon. Säilyttää PSM 6 -polun ja sanaston.
 
-- Pystykuville ensin muuttamaton alkuperäiskuva ja PSM 6.
-- Jos PSM 6 palauttaa vähintään kolme sanaa ja varmuus on vähintään 82 %, tulos säilytetään eikä lisäajoja tehdä.
-- Heikolle tulokselle varatunnistukset PSM 3, tarvittaessa laaja PSM 11 ja kontrastikorjattu PSM 6.
-- Vaakasuuntaisten kuvien 2.5.15-tunnistus säilyy muuttumattomana.
-- Ei yhdistetä OCR-ehdokkaiden sanalistoja. Voikko, sanasto, käännökset ja harjoittelu säilyvät.
-- PWA-välimuisti päivitetty versioon 2.5.16.
+Näyttökuvien kahdesta PSM 7 -ajosta muodostetaan vain tarkistettava vaihtoehto, kun Tesseract palauttaa luotettavat sanakohtaiset koordinaatit. Tunnistus ei lisää puuttuvaa sanaa ”ei” arvauksena. Jos koordinaatteja ei ole, nykyinen tulos säilyy.
 
-Huom: 82 % ja 3 sanaa ovat alustavia turvarajoja, eivät validoitu laatutakuu. Testaa vanhoilla kuvilla.
+Testaa sama näyttökuva ja varmista, että painikkeella tarjottu vaihtoehto sisältää sanan kamera sekä lauseen lopun. Tulos voi edelleen sisältää virheitä.
+
+Asennus: korvaa GitHubin WordVault-repositorion juuren kuusi tiedostoa ja tee commit. Älä tyhjennä mobiiliselaimen paikallista tallennustilaa.
