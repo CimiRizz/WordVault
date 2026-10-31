@@ -1,6 +1,1 @@
-WordVault 2.5.18 – TSV-sijaintidiagnostiikka ja varovainen yhdistämisehdotus.
-
-Pohja: 2.5.17. PSM 6 -tunnistus, Voikko, sanasto ja harjoittelu ennallaan.
-Tesseractilta pyydetään TSV, jonka sanakoordinaatit ja varmuudet näkyvät diagnostiikassa.
-Yhdistämisehdotus on aina käyttäjän tarkistettava.
-Ei vielä vahvistettu mobiiliselaimella.
+WordVault 2.5.19. TSV:n todellinen pituus ja alku, hOCR-varatulkinta, sanakoordinaatit ja varovainen käyttäjän hyväksymä tekstiehdotus. PSM 6 ja tallennus ennallaan. OCR-tarkkuutta ei ole vahvistettu laitteella.
